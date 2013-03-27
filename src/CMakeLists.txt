@@ -14,7 +14,7 @@ FIND_PACKAGE(CUDA)
 
 option (CUDA_ENFORCE_HOST_COMPILER "Force nvcc to use the same compiler used to compile .c(pp) files insted of gcc/g++" ON)
 if (CUDA_ENFORCE_HOST_COMPILER)
-    set (CMAKE_GCC_TEMP_DIR "CMakeGCC")
+    set (CMAKE_GCC_TEMP_DIR "${CMAKE_BUILD_DIR}/CMakeGCC")
     file(MAKE_DIRECTORY ${CMAKE_GCC_TEMP_DIR})
     execute_process(COMMAND ${CMAKE_COMMAND} -E create_symlink ${CMAKE_C_COMPILER} ${CMAKE_GCC_TEMP_DIR}/gcc)
     execute_process(COMMAND ${CMAKE_COMMAND} -E create_symlink ${CMAKE_CXX_COMPILER} ${CMAKE_GCC_TEMP_DIR}/g++)
