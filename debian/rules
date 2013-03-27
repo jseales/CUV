@@ -9,10 +9,10 @@
 # Uncomment this to turn on verbose mode.
 #export DH_VERBOSE=1
 
+export CC=gcc-4.6
+export CXX=g++-4.6
+
 %:
-	mkdir -p /tmp/cuv_compiler
-	ln -sf /usr/bin/gcc-4.6 /tmp/cuv_compiler/gcc
-	ln -sf /usr/bin/g++-4.6 /tmp/cuv_compiler/g++
 	dh $@ --parallel
 
 # turn off dh_shlibdeps errors: we cannot find a package that contains
